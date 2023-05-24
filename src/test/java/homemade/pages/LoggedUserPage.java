@@ -12,7 +12,14 @@ public class LoggedUserPage {
     @FindBy(xpath = "//h1[@class='entry-title']")
     private WebElement entryTitle;
 
-    public LoggedUserPage(WebDriver driver){
 
+    public LoggedUserPage(WebDriver driver){
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
+
+    }
+
+    public WebElement getEntryTitle() {
+        return entryTitle;
     }
 }
