@@ -5,17 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        WebElement entryTitle = new HomePage(driver).openMyAccountPage()
-                .registerUser("test@test12.pl", "test@test.pl").getEntryTitle();
+        int randomNumber = (int) (Math.random() * 1000);
+        String email = "tester" + randomNumber + "@test.pl";
 
-        Assert.assertTrue(entryTitle.isDisplayed());
-        Assert.assertEquals(entryTitle.getText(),"My account");
+        WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
+                .registerUser(email, "test@test.pl").getDashboardLink();
+
+        Assert.assertEquals(dashboardLink.getText(),"Dashboard");
 
 
     }

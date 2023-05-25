@@ -9,8 +9,8 @@ public class LoggedUserPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = "//h1[@class='entry-title']")
-    private WebElement entryTitle;
+    @FindBy(linkText = "Dashboard")
+    private WebElement dashboardLink;
 
 
     public LoggedUserPage(WebDriver driver){
@@ -19,7 +19,7 @@ public class LoggedUserPage {
 
     }
 
-    public WebElement getEntryTitle() {
-        return entryTitle;
+    public WebElement getDashboardLink() {
+        return dashboardLink;
     }
 }
