@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class DriverFactory {
 
     public static WebDriver getDriver() {
+
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

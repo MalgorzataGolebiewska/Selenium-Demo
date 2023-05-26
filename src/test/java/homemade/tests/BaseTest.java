@@ -10,8 +10,10 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     protected WebDriver driver;
+
     @BeforeMethod
     public void setup() {
+
         driver = DriverFactory.getDriver();
         driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -20,6 +22,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
+
         driver.quit();
     }
 }

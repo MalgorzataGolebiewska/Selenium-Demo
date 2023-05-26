@@ -5,17 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RegisterTest extends BaseTest {
+public class LogInTest extends BaseTest {
 
     @Test
-    public void registerUserTest() {
-
-        int randomNumber = (int) (Math.random() * 1000);
-        String email = "tester" + randomNumber + "@test.pl";
+    public void logInTest() {
 
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUserValidData(email, "test@test.pl")
+                .logInValidData("test2@test.pl", "test@test.pl")
                 .getDashboardLink();
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
@@ -24,14 +21,14 @@ public class RegisterTest extends BaseTest {
     }
 
     @Test
-    public void registerUserWithSameEmailTest() {
+    public void LogInWithInvalidPasswordTest() {
 
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUseInvalidData("test1@test.pl", "test@test.pl")
+                .logInInvalidData("test2@test.pl", "testtest.pl")
                 .getError();
 
-        Assert.assertTrue(error.getText().contains("An account is already registered with your email address."));
+        Assert.assertTrue(error.getText().contains("Incorrect username or password."), "Expected error doesn't match");
 
 
     }

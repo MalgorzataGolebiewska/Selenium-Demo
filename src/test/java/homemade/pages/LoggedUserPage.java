@@ -13,15 +13,15 @@ public class LoggedUserPage {
     private WebElement dashboardLink;
 
 
+    public LoggedUserPage(WebDriver driver) {
 
-
-    public LoggedUserPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
 
     }
 
     public WebElement getDashboardLink() {
+
         return dashboardLink;
     }
 
