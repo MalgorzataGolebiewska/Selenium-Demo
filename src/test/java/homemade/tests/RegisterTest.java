@@ -13,9 +13,20 @@ public class RegisterTest extends BaseTest {
         String email = "tester" + randomNumber + "@test.pl";
 
         WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
-                .registerUser(email, "test@test.pl").getDashboardLink();
+                .registerUserValidData(email, "test@test.pl").getDashboardLink();
 
-        Assert.assertEquals(dashboardLink.getText(),"Dashboard");
+        Assert.assertEquals(dashboardLink.getText(), "Dashboard");
+
+
+    }
+
+    @Test
+    public void registerUserWithSameEmailTest() {
+
+        WebElement error = new HomePage(driver).openMyAccountPage()
+                .registerUseInvalidData("test1@test.pl", "test@test.pl").getError();
+
+        Assert.assertTrue(error.getText().contains("An account is already registered with your email address."));
 
 
     }
