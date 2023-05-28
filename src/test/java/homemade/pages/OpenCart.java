@@ -15,8 +15,8 @@ public class OpenCart {
         this.driver = driver;
     }
 
-    public AdressDetailsPage openAdressDetails(){
+    public AddressDetailsPage openAdressDetails(){
         proceedToCheckoutButton.click();
-        return new AdressDetailsPage(driver);
+        return new AddressDetailsPage(driver);
     }
 }
