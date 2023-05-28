@@ -9,7 +9,6 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-
         int randomNumber = (int) (Math.random() * 1000);
         String email = "tester" + randomNumber + "@test.pl";
 
@@ -25,7 +24,6 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserWithSameEmailTest() {
-
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
                 .registerUseInvalidData("test1@test.pl", "test@test.pl")

@@ -22,7 +22,6 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void LogInWithInvalidPasswordTest() {
-
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
                 .logInInvalidData("test2@test.pl", "testtest.pl")

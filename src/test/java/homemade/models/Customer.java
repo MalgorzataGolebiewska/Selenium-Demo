@@ -71,13 +71,6 @@ public class Customer {
         this.cityName = cityName;
     }
 
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
 
     public String getPostCode() {
         return postCode;

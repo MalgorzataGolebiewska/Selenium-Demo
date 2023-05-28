@@ -18,7 +18,7 @@ public class AddressDetailsPage {
     @FindBy(id = "billing_company")
     private WebElement companyNameInput;
 
-    @FindBy(id = "select2-billing_country-container")
+    @FindBy(id = "billing_country")
     private WebElement countrySelect;
 
     @FindBy(id = "billing_address_1")
@@ -63,7 +63,6 @@ public class AddressDetailsPage {
         streetAddressInput.sendKeys(customer.getAddress1());
         streetAddressSecondInput.sendKeys(customer.getAddress2());
         townInput.sendKeys(customer.getCityName());
-        stateInput.sendKeys(customer.getStateName());
         postCodeInput.sendKeys(customer.getPostCode());
         phoneInput.sendKeys(customer.getPhone());
         emailInput.sendKeys(customer.getEmail());
