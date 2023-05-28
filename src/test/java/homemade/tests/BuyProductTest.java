@@ -10,7 +10,11 @@ public class BuyProductTest extends BaseTest {
     @Test
     public void BuyProductTest() {
 
-        new HomePage(driver).openShopPage().openProduct("Java Selenium WebDriver").addProductToCart();
+        new HomePage(driver).openShopPage().openProduct("Java Selenium WebDriver")
+                .addProductToCart()
+                .viewCartPage()
+                .openAdressDetails();
+
 
 
     }

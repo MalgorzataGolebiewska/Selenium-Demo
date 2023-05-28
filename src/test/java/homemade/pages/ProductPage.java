@@ -10,6 +10,9 @@ public class ProductPage {
     @FindBy(name = "add-to-cart")
     private WebElement addToCartButton;
 
+    @FindBy(xpath = "//div[@class='woocommerce-message']//a[text()='View cart']")
+    private WebElement viewCartButton;
+
     private WebDriver driver;
 
 
@@ -21,5 +24,10 @@ public class ProductPage {
     public ProductPage addProductToCart() {
         addToCartButton.click();
         return this;
+    }
+
+    public OpenCart viewCartPage(){
+        viewCartButton.click();
+        return new OpenCart(driver);
     }
 }
