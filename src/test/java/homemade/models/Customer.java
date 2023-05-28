@@ -2,18 +2,17 @@ package homemade.models;
 
 public class Customer {
 
-    private String firstName;
-    private String lastName;
-    private String companyName;
-    private String country;
-    private String address1;
-    private String address2;
-    private String cityName;
-    private String stateName;
-    private String postCode;
-    private String phone;
-    private String email;
-    private String orderComments;
+    private String firstName = "Pepino";
+    private String lastName = "Testowy";
+    private String companyName = "Tester&Tester";
+    private String country = "Poland";
+    private String address1 = "Testowa 11";
+    private String address2 = "Apt. 1";
+    private String cityName = "Seul";
+    private String postCode = "12-121";
+    private String phone = "123456789";
+    private String email = "test1@test.pl";
+    private String orderComments = "no comments";
 
     public String getFirstName() {
         return firstName;
