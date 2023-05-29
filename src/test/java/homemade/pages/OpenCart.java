@@ -1,5 +1,6 @@
 package homemade.pages;
 
+import homemade.utils.SeleniumHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,7 @@ public class OpenCart {
     }
 
     public AddressDetailsPage openAdressDetails(){
+        SeleniumHelper.waitForClicable(proceedToCheckoutButton,driver);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
     }

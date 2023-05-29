@@ -13,8 +13,9 @@ public class BuyProductTest extends BaseTest {
         Customer customer = new Customer();
         customer.setEmail("testerski@testy.pl");
 
-        OrderDetailsPage orderDetailsPage =
-                new HomePage(driver).openShopPage().openProduct("Java Selenium WebDriver")
+        OrderDetailsPage orderDetailsPage = new HomePage(driver)
+                .openShopPage()
+                .openProduct("Java Selenium WebDriver")
                 .addProductToCart()
                 .viewCartPage()
                 .openAdressDetails()
@@ -23,5 +24,4 @@ public class BuyProductTest extends BaseTest {
         Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(),"Thank you. Your order has been received.");
         Assert.assertEquals(orderDetailsPage.getProductName().getText(),"Java Selenium WebDriver × 1");
     }
-
 }
