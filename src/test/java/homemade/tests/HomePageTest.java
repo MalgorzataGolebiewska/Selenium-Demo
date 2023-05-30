@@ -13,8 +13,5 @@ public class HomePageTest extends BaseTest {
         WebElement designYourOwnSpace = new HomePage(driver)
                 .getDesignYourOwnSpace();
 
-
-
-
     }
 }
