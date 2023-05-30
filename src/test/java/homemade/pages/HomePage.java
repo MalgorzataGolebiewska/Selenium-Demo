@@ -13,6 +13,12 @@ public class HomePage {
     @FindBy(xpath = "//span[text()='Shop']")
     private WebElement shopLink;
 
+    @FindBy(xpath = "//div/a[@class='sek-btn box-shadow push-effect']")
+    private WebElement shopButton;
+
+    @FindBy(xpath = "//div[@class='sek-module-inner']")
+    private WebElement designYourOwnSpace;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -30,4 +36,16 @@ public class HomePage {
         return new ShopPage(driver);
 
     }
+
+    public ShopPage openShopPageByButton() {
+        shopButton.click();
+        return new ShopPage(driver);
+    }
+
+    public WebElement getDesignYourOwnSpace() {
+        System.out.println(designYourOwnSpace.getText());
+        return designYourOwnSpace;
+    }
+
+
 }

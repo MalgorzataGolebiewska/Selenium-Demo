@@ -10,6 +10,10 @@ public class OpenCart {
 
     @FindBy(partialLinkText = "Proceed to checkout")
             private WebElement proceedToCheckoutButton;
+
+    @FindBy(xpath = "//div/h2[text()='Cart totals']")
+    private WebElement cartTotals;
+
     private WebDriver driver;
     public OpenCart(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -20,5 +24,8 @@ public class OpenCart {
         SeleniumHelper.waitForClicable(proceedToCheckoutButton,driver);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
+    }
+    public WebElement getCartTotals() {
+        return cartTotals;
     }
 }
