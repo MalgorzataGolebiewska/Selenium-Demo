@@ -15,13 +15,14 @@ public class OpenCart {
     private WebElement cartTotals;
 
     private WebDriver driver;
+
     public OpenCart(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     public AddressDetailsPage openAdressDetails(){
-        SeleniumHelper.waitForClicable(proceedToCheckoutButton,driver);
+        SeleniumHelper.waitForClicable(proceedToCheckoutButton, driver);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
     }

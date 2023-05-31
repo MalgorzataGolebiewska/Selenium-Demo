@@ -16,8 +16,30 @@ public class HomePage {
     @FindBy(xpath = "//div/a[@class='sek-btn box-shadow push-effect']")
     private WebElement shopButton;
 
-    @FindBy(xpath = "//div[@class='sek-module-inner']")
+    @FindBy(xpath = "//*[contains(text(), 'Design your')]")
     private WebElement designYourOwnSpace;
+
+    @FindBy(xpath = "//div/p[1]")
+    private WebElement suspendisseLectusText;
+
+    @FindBy(xpath = "//*[@class='fas fa-chart-line']")
+    private WebElement chartLineLogo;
+
+    @FindBy(xpath = "//*[@class='fas fa-award']")
+    private WebElement awardLogo;
+
+    @FindBy(xpath = "//*[@class='far fa-clock']")
+    private WebElement clockLogo;
+
+    @FindBy(xpath = "//h3[text()='High performances']")
+    private WebElement highPerformanceText;
+
+    @FindBy(xpath = "//h3[text()='Industry leader']")
+    private WebElement industryLeaderText;
+
+    @FindBy(xpath = "//h3[text()='Delivers on time']")
+    private WebElement deliversOnTimeText;
+
 
     private WebDriver driver;
 
@@ -31,6 +53,7 @@ public class HomePage {
         return new MyAccountPage(driver);
 
     }
+
     public ShopPage openShopPage() {
         shopLink.click();
         return new ShopPage(driver);
@@ -47,5 +70,35 @@ public class HomePage {
         return designYourOwnSpace;
     }
 
+    public WebElement getSuspendisseLectusText() {
+        System.out.println(suspendisseLectusText.getText());
+        return suspendisseLectusText;
+    }
 
+    public WebElement getChartLineLogo() {
+        return chartLineLogo;
+    }
+
+    public WebElement getAwardLogo() {
+        return awardLogo;
+    }
+
+    public WebElement getClockLogo() {
+        return clockLogo;
+    }
+
+    public WebElement getHighPerformanceText() {
+        System.out.println(highPerformanceText.getText());
+        return highPerformanceText;
+    }
+
+    public WebElement getIndustryLeaderText() {
+        System.out.println(industryLeaderText.getText());
+        return industryLeaderText;
+    }
+
+    public WebElement getDeliversOnTimeText() {
+        System.out.println(deliversOnTimeText.getText());
+        return deliversOnTimeText;
+    }
 }

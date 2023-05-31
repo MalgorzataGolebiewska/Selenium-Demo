@@ -49,12 +49,13 @@ public class AddressDetailsPage {
     private WebElement placeOrderButton;
 
     private WebDriver driver;
-    public AddressDetailsPage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+
+    public AddressDetailsPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    public OrderDetailsPage fillAddressDetails(Customer customer){
+    public OrderDetailsPage fillAddressDetails(Customer customer) {
         firstNameInput.sendKeys(customer.getFirstName());
         lasNameInput.sendKeys(customer.getLastName());
         companyNameInput.sendKeys(customer.getCompanyName());

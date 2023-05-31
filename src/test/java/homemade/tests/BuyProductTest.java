@@ -22,9 +22,10 @@ public class BuyProductTest extends BaseTest {
                 .viewCartPage()
                 .openAdressDetails()
                 .fillAddressDetails(customer);
+        //test czasami nie dziala, ze wzgledu na niepoprawne dzialanie przycisku "Place Order", do sprawdzenia po stronie developera
 
-        Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(),"Thank you. Your order has been received.");
-        Assert.assertEquals(orderDetailsPage.getProductName().getText(),"Java Selenium WebDriver × 1");
+        Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(), "Thank you. Your order has been received.");
+        Assert.assertEquals(orderDetailsPage.getProductName().getText(), "Java Selenium WebDriver × 1");
     }
 
     @Test

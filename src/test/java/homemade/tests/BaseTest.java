@@ -22,16 +22,16 @@ public class BaseTest {
     }
 
     @AfterMethod
-
     public void screenShot(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
                 SeleniumHelper.getScreenshot(driver);
                 System.out.println("Test failed, screenshot captured");
             } catch(Exception e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
         }
+        //tearDown();
     }
 
     public void tearDown() {
