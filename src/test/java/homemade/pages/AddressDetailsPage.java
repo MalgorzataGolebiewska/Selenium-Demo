@@ -71,6 +71,4 @@ public class AddressDetailsPage {
         placeOrderButton.click();
         return new OrderDetailsPage(driver);
     }
-
-
 }

@@ -1,5 +1,6 @@
 package homemade.pages;
 
+import homemade.utils.SeleniumHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,23 @@ public class HomePage {
     @FindBy(xpath = "//h3[text()='Delivers on time']")
     private WebElement deliversOnTimeText;
 
+    @FindBy(xpath = "//div[@data-sek-id='__nimble__ce9c67ba2a1c']")
+    private WebElement nimbleCe9c67ba2a1cText;
+
+    @FindBy(xpath = "//div[@data-sek-id='__nimble__6e96a4095315']")
+    private WebElement nimble6e96a4095315Text;
+
+    @FindBy(xpath = "//div[@data-sek-id='__nimble__b547e4fe7ec6']")
+    private WebElement nimbleB547e4fe7ec6Text;
+
+    @FindBy(xpath = "//h2[text()='CONTACT US']")
+    private WebElement contactUsText;
+
+    @FindBy(xpath = "//div/label[@for='nimble_name357955861']")
+    private WebElement nimbleName357955861;
+
+    @FindBy(id = "sek-form-respond")
+    private WebElement respondText;
 
     private WebDriver driver;
 
@@ -71,6 +89,7 @@ public class HomePage {
     }
 
     public WebElement getSuspendisseLectusText() {
+        SeleniumHelper.waitForElementToBeVisible(driver, suspendisseLectusText);
         System.out.println(suspendisseLectusText.getText());
         return suspendisseLectusText;
     }
@@ -100,5 +119,34 @@ public class HomePage {
     public WebElement getDeliversOnTimeText() {
         System.out.println(deliversOnTimeText.getText());
         return deliversOnTimeText;
+    }
+
+    public WebElement getNimbleCe9c67ba2a1cText() {
+        System.out.println(nimbleCe9c67ba2a1cText.getText());
+        return nimbleCe9c67ba2a1cText;
+    }
+
+    public WebElement getNimble6e96a4095315Text() {
+        System.out.println(nimble6e96a4095315Text.getText());
+        return nimble6e96a4095315Text;
+    }
+
+    public WebElement getNimbleB547e4fe7ec6Text() {
+        System.out.println(nimbleB547e4fe7ec6Text.getText());
+        return nimbleB547e4fe7ec6Text;
+    }
+
+    public WebElement getContactUsText() {
+        System.out.println(contactUsText.getText());
+        return contactUsText;
+    }
+
+    public WebElement getNimbleName357955861() {
+        return nimbleName357955861;
+    }
+
+    public WebElement getRespondText() {
+        System.out.println(respondText.getText());
+        return respondText;
     }
 }

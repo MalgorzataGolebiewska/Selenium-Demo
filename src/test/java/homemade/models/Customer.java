@@ -13,6 +13,7 @@ public class Customer {
     private String phone = "123456789";
     private String email = "test1@test.pl";
     private String orderComments = "no comments";
+    private String contactUsMessage = "test test test";
 
     public String getFirstName() {
         return firstName;
@@ -70,7 +71,6 @@ public class Customer {
         this.cityName = cityName;
     }
 
-
     public String getPostCode() {
         return postCode;
     }
@@ -101,5 +101,13 @@ public class Customer {
 
     public void setOrderComments(String orderComments) {
         this.orderComments = orderComments;
+    }
+
+    public String getContactUsMessage() {
+        return contactUsMessage;
+    }
+
+    public void setContactUsMessage(String contactUsMessage) {
+        this.contactUsMessage = contactUsMessage;
     }
 }

@@ -17,20 +17,27 @@ public class SeleniumHelper {
 
     private WebDriver driver;
 
-    public static void waitForClicable(WebElement element, WebDriver driver){
+    public static void waitForClicable(WebElement element, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-    public static void waitForLocator(By locator, WebDriver driver){
+
+    public static void waitForLocator(By locator, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+    public static void waitForElementToBeVisible(WebDriver driver, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(101));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     public static MediaEntityModelProvider getScreenshot(WebDriver driver) throws IOException {
         String path = takeScreenshot(driver);
         return MediaEntityBuilder.createScreenCaptureFromPath(path).build();
     }
 
-    private static String takeScreenshot (WebDriver driver) throws IOException {
+    private static String takeScreenshot(WebDriver driver) throws IOException {
         TakesScreenshot screenshot = (TakesScreenshot) driver;
         File file = screenshot.getScreenshotAs(OutputType.FILE);
         String timestamp = new SimpleDateFormat("yyyy_MM_dd" + " _hh_mm_ss").format(new Date());
