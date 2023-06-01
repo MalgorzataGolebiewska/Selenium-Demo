@@ -19,8 +19,7 @@ public class ContactUsSection {
     @FindBy(id = "nimble_submit357955861")
     private WebElement nimbleButton;
 
-
-    WebDriver driver;
+    private WebDriver driver;
 
     public ContactUsSection(WebDriver driver) {
         PageFactory.initElements(driver, this);

@@ -1,6 +1,7 @@
 package homemade.tests;
 
 import homemade.models.Customer;
+import homemade.pages.ArticleContainer;
 import homemade.pages.ContactUsSection;
 import homemade.pages.HomePage;
 import org.openqa.selenium.WebElement;
@@ -9,13 +10,11 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseTest {
 
-
     @Test
     public void HomePageTest() {
 
         HomePage homePage = new HomePage(driver);
 
-        WebElement text1 = homePage.getSuspendisseLectusText();
         WebElement text2 = homePage.getDesignYourOwnSpace();
         WebElement logo1 = homePage.getChartLineLogo();
         WebElement logo2 = homePage.getAwardLogo();
@@ -30,7 +29,7 @@ public class HomePageTest extends BaseTest {
         WebElement text10 = homePage.getNimbleName357955861();
 
 
-        Assert.assertEquals(text1.getText(), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.");
+        Assert.assertEquals(homePage.getSuspendisseLectusText().getText(), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.");
         Assert.assertEquals(text2.getText(), "Design your own space");
         Assert.assertTrue(logo1.isDisplayed());
         Assert.assertTrue(logo2.isDisplayed());
@@ -53,5 +52,11 @@ public class HomePageTest extends BaseTest {
                 .fillContactUsSection(customer);
 
         Assert.assertEquals(contactUsSection.getRespondText().getText(), "It is demo page! We are not sending emails!");
+    }
+
+    @Test
+    public void ArticleSection() {
+
+
     }
 }

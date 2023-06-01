@@ -59,6 +59,9 @@ public class HomePage {
     @FindBy(id = "sek-form-respond")
     private WebElement respondText;
 
+    @FindBy(xpath = "//a[@href='http://seleniumdemo.com/?p=41']")
+    private WebElement secondPostLink;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -149,4 +152,11 @@ public class HomePage {
         System.out.println(respondText.getText());
         return respondText;
     }
+
+    public ArticleContainer getSecondPostLink() {
+        SeleniumHelper.waitForClickable(secondPostLink, driver);
+        secondPostLink.click();
+        return new ArticleContainer(driver);
+    }
+
 }

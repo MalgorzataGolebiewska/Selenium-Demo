@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class OpenCart {
 
     @FindBy(partialLinkText = "Proceed to checkout")
-            private WebElement proceedToCheckoutButton;
+    private WebElement proceedToCheckoutButton;
 
     @FindBy(xpath = "//div/h2[text()='Cart totals']")
     private WebElement cartTotals;
@@ -22,7 +22,7 @@ public class OpenCart {
     }
 
     public AddressDetailsPage openAdressDetails(){
-        SeleniumHelper.waitForClicable(proceedToCheckoutButton, driver);
+        SeleniumHelper.waitForClickable(proceedToCheckoutButton, driver);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
     }
