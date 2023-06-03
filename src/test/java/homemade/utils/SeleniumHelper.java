@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.Random;
 
 public class SeleniumHelper {
 
@@ -44,5 +45,18 @@ public class SeleniumHelper {
         String path = "src/test/resources/screenshots/" + timestamp + "_screenshot" + ".png";
         FileUtils.copyFile(file, new File(path));
         return path;
+    }
+
+    public static String generateRandomText(int length) {
+        char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                .toCharArray();
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
+        }
+        String randomString = sb.toString();
+        return randomString;
     }
 }

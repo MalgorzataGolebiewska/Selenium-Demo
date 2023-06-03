@@ -1,5 +1,9 @@
 package homemade.models;
 
+import homemade.utils.SeleniumHelper;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 public class Customer {
 
     private String firstName = "Pepino";
@@ -14,6 +18,11 @@ public class Customer {
     private String email = "test1@test.pl";
     private String orderComments = "no comments";
     private String contactUsMessage = "test test test";
+
+    private String commentTextSection = SeleniumHelper.generateRandomText(200);
+    private String websiteCommentSection = "www.testowylink.pl";
+
+
 
     public String getFirstName() {
         return firstName;
@@ -109,5 +118,21 @@ public class Customer {
 
     public void setContactUsMessage(String contactUsMessage) {
         this.contactUsMessage = contactUsMessage;
+    }
+
+    public String getCommentTextSection() {
+        return commentTextSection;
+    }
+
+    public void setCommentTextSection(String commentTextSection) {
+        this.commentTextSection = commentTextSection;
+    }
+
+    public String getWebsiteCommentSection() {
+        return websiteCommentSection;
+    }
+
+    public void setWebsiteCommentSection(String websiteCommentSection) {
+        this.websiteCommentSection = websiteCommentSection;
     }
 }
