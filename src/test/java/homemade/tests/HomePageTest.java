@@ -1,7 +1,6 @@
 package homemade.tests;
 
 import homemade.models.Customer;
-import homemade.pages.ArticleContainer;
 import homemade.pages.ContactUsSection;
 import homemade.pages.HomePage;
 import org.openqa.selenium.WebElement;
@@ -52,11 +51,5 @@ public class HomePageTest extends BaseTest {
                 .fillContactUsSection(customer);
 
         Assert.assertEquals(contactUsSection.getRespondText().getText(), "It is demo page! We are not sending emails!");
-    }
-
-    @Test
-    public void ArticleSection() {
-
-
     }
 }

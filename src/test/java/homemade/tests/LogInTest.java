@@ -27,4 +27,13 @@ public class LogInTest extends BaseTest {
 
         Assert.assertTrue(error.getText().contains("Incorrect username or password."), "Expected error doesn't match");
     }
+
+    @Test
+    public void SeleniumDemoBarClickableTest() {
+        HomePage pageBar = new HomePage(driver)
+                .openMyAccountPage()
+                .openHomePage();
+
+        Assert.assertEquals(pageBar.getHomePageBar().getText(), "Selenium Demo Page");
+    }
 }

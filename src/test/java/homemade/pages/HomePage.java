@@ -62,6 +62,9 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='http://seleniumdemo.com/?p=41']")
     private WebElement secondPostLink;
 
+    @FindBy(xpath = "//h1[@class='navbar-brand col-auto ']")
+    private WebElement homePageBar;
+
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -72,13 +75,11 @@ public class HomePage {
     public MyAccountPage openMyAccountPage() {
         myAccountLink.click();
         return new MyAccountPage(driver);
-
     }
 
     public ShopPage openShopPage() {
         shopLink.click();
         return new ShopPage(driver);
-
     }
 
     public ShopPage openShopPageByButton() {
@@ -93,7 +94,6 @@ public class HomePage {
 
     public WebElement getSuspendisseLectusText() {
         SeleniumHelper.waitForElementToBeVisible(driver, suspendisseLectusText);
-        System.out.println(suspendisseLectusText.getText());
         return suspendisseLectusText;
     }
 
@@ -153,10 +153,13 @@ public class HomePage {
         return respondText;
     }
 
-    public ArticleContainer getSecondPostLink() {
+    public ArticleContainer openArticleContainerPage() {
         SeleniumHelper.waitForClickable(secondPostLink, driver);
         secondPostLink.click();
         return new ArticleContainer(driver);
     }
 
+    public WebElement getHomePageBar() {
+        return homePageBar;
+    }
 }

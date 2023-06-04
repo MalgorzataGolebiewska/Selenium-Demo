@@ -15,7 +15,7 @@ public class ArticleSectionTest extends BaseTest {
         Customer customer = new Customer();
 
         ArticleContainer articleContainer = new HomePage(driver)
-                .getSecondPostLink()
+                .openArticleContainerPage()
                 .fillCommentSection(customer);
 
         Assert.assertEquals(articleContainer.getUncategorizedSpan().getText(), "UNCATEGORIZED");
@@ -23,6 +23,7 @@ public class ArticleSectionTest extends BaseTest {
         Assert.assertEquals(articleContainer.getPublishedText().getText(), "by admin|Published January 18, 2019");
         Assert.assertEquals(articleContainer.getPostContentText().getText(), "Second post");
         Assert.assertEquals(articleContainer.getRelatedPostText().getText(), "YOU MAY ALSO LIKE");
+        Assert.assertEquals(articleContainer.getPermalinkText().getText(), "Second post");
         Assert.assertEquals(articleContainer.getLeaveCommentText().getText(), "Leave a comment");
         Assert.assertEquals(articleContainer.getEmailNotes().getText(), "Your email address will not be published. Required fields are marked *");
         Assert.assertEquals(articleContainer.getCommentLabel().getText(), "COMMENT");
@@ -41,9 +42,9 @@ public class ArticleSectionTest extends BaseTest {
         customer.setEmail("lllllll");
 
         ArticleContainer articleContainer = new HomePage(driver)
-                .getSecondPostLink()
+                .openArticleContainerPage()
                 .fillErrorComment(customer);
-        ErrorPage errorPage = articleContainer.clickSubmitAndGoToErrorPage();
+        ErrorPage errorPage = articleContainer.openErrorPage();
         //#TODO czy to poprawne podejscie?
         String errorMessage = errorPage.getErrorTitle().getText();
         articleContainer = errorPage.getBackUrl();
@@ -53,22 +54,12 @@ public class ArticleSectionTest extends BaseTest {
     }
 
     @Test
-    public void CommentSectionInvalidWebsite() {
-        Customer customer = new Customer();
-        customer.setWebsiteCommentSection("123+*%$# ");
-
+    public void YouMayAlsoLikeArea() {
         ArticleContainer articleContainer = new HomePage(driver)
-                .getSecondPostLink()
-                .fillErrorComment(customer);
-        ErrorPage errorPage = articleContainer.clickSubmitAndGoToErrorPage();
-        //#TODO czy to poprawne podejscie?
-        String errorMessage = errorPage.getErrorTitle().getText();
-        articleContainer = errorPage.getBackUrl();
+                .openArticleContainerPage()
+                .getPermalinkPhoto();
 
-        Assert.assertEquals(errorMessage, "");
-        Assert.assertEquals(articleContainer.getHomePageBar().getText(), "Selenium Demo Page");
-
-
+        Assert.assertEquals(articleContainer.getEntryTitleText().getText(), "Hello World");
     }
 }
 

@@ -39,5 +39,4 @@ public class BuyProductTest extends BaseTest {
 
         Assert.assertEquals(openCart.getCartTotals().getText(), "Cart totals");
     }
-
 }

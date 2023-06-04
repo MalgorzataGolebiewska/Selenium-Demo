@@ -56,6 +56,12 @@ public class ArticleContainer {
     @FindBy(id = "submit")
     private WebElement submitCommentButton;
 
+    @FindBy(xpath = "//div/a[@class='bg-link']")
+    private WebElement permalinkPhoto;
+
+    @FindBy(xpath = "//h2/a[@class='czr-title']")
+    private WebElement permalinkText;
+
     @FindBy(xpath = "//h1[@class='navbar-brand col-auto ']")
     private WebElement homePageBar;
 
@@ -127,8 +133,15 @@ public class ArticleContainer {
         return urlCommentInput;
     }
 
-    public WebElement getHomePageBar() {
-        return homePageBar;
+
+    public ArticleContainer getPermalinkPhoto() {
+        permalinkPhoto.click();
+        return new ArticleContainer(driver);
+    }
+
+    public WebElement getPermalinkText() {
+        SeleniumHelper.waitForElementToBeVisible(driver, permalinkText);
+        return permalinkText;
     }
 
     public WebElement getSubmitCommentButton() {
@@ -145,7 +158,7 @@ public class ArticleContainer {
         return new ArticleContainer(driver);
     }
 
-    public ErrorPage clickSubmitAndGoToErrorPage() {
+    public ErrorPage openErrorPage() {
         submitCommentButton.click();
         return new ErrorPage(driver);
     }
@@ -156,6 +169,10 @@ public class ArticleContainer {
         emailCommentInput.sendKeys(customer.getEmail());
         urlCommentInput.sendKeys(customer.getWebsiteCommentSection());
         return this;
+    }
+
+    public WebElement getHomePageBar() {
+        return homePageBar;
     }
 }
 
