@@ -14,19 +14,21 @@ public class OpenCart {
     @FindBy(xpath = "//div/h2[text()='Cart totals']")
     private WebElement cartTotals;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    public OpenCart(WebDriver driver){
+    public OpenCart(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    public AddressDetailsPage openAdressDetails(){
+    public AddressDetailsPage openAdressDetails() {
         SeleniumHelper.waitForClickable(proceedToCheckoutButton, driver);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
     }
+
     public WebElement getCartTotals() {
         return cartTotals;
     }
+
 }

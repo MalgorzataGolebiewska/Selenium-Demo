@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 public class BuyProductTest extends BaseTest {
 
-
     @Test
-    public void BuyProductTest() {
+    public void buyProductTest() {
+        //given
         Customer customer = new Customer();
         customer.setEmail("testerski@testy.pl");
-
+        //when
         OrderDetailsPage orderDetailsPage = new HomePage(driver)
                 .openShopPage()
                 .openProduct("Java Selenium WebDriver")
@@ -22,21 +22,23 @@ public class BuyProductTest extends BaseTest {
                 .viewCartPage()
                 .openAdressDetails()
                 .fillAddressDetails(customer);
-        //test czasami nie dziala, ze wzgledu na niepoprawne dzialanie przycisku "Place Order", do sprawdzenia po stronie developera
-
+        //TODO test czasami nie dziala, ze wzgledu na niepoprawne dzialanie przycisku "Place Order", do sprawdzenia po stronie developera
+        //then
         Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(), "Thank you. Your order has been received.");
         Assert.assertEquals(orderDetailsPage.getProductName().getText(), "Java Selenium WebDriver × 1");
     }
 
     @Test
-    public void BuyProductTestByButton() {
+    public void buyProductTestByButton() {
+        //given
+        //when
         OpenCart openCart = new HomePage(driver)
                 .openShopPageByButton()
                 .openProduct("Java Selenium WebDriver")
                 .addProductToCart()
                 .viewCartPage();
-
-
+        //then
         Assert.assertEquals(openCart.getCartTotals().getText(), "Cart totals");
     }
+
 }

@@ -3,11 +3,13 @@ package homemade.pages;
 import homemade.utils.SeleniumHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class ShopPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
+
     public ShopPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -19,4 +21,5 @@ public class ShopPage {
         driver.findElement(productXpath).click();
         return new ProductPage(driver);
     }
+
 }

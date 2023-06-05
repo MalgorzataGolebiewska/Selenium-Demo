@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyAccountPage {
 
-
     @FindBy(id = "reg_email")
     private WebElement regEmailInput;
 
@@ -32,7 +31,7 @@ public class MyAccountPage {
     @FindBy(xpath = "//h1[@class='navbar-brand col-auto ']")
     private WebElement homePageBar;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -79,4 +78,5 @@ public class MyAccountPage {
         homePageBar.click();
         return new HomePage(driver);
     }
+
 }

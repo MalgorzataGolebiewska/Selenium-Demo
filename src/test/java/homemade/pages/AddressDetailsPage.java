@@ -48,7 +48,7 @@ public class AddressDetailsPage {
     @FindBy(id = "place_order")
     private WebElement placeOrderButton;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public AddressDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -71,4 +71,5 @@ public class AddressDetailsPage {
         placeOrderButton.click();
         return new OrderDetailsPage(driver);
     }
+
 }

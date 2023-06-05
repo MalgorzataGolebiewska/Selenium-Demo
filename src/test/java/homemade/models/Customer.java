@@ -1,99 +1,76 @@
 package homemade.models;
 
 import homemade.utils.SeleniumHelper;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class Customer {
 
-    private String firstName = "Pepino";
-    private String lastName = "Testowy";
-    private String companyName = "Tester&Tester";
-    private String country = "Poland";
-    private String address1 = "Testowa 11";
-    private String address2 = "Apt. 1";
-    private String cityName = "Seul";
-    private String postCode = "12-121";
-    private String phone = "123456789";
-    private String email = "test1@test.pl";
-    private String orderComments = "no comments";
-    private String contactUsMessage = "test test test";
+    private String firstName;
+    private String lastName;
+    private String companyName;
+    private String country;
+    private String address1;
+    private String address2;
+    private String cityName;
+    private String postCode;
+    private String phone;
+    private String email;
+    private String orderComments;
+    private String contactUsMessage;
+    private String commentTextSection;
+    private String websiteCommentSection;
 
-    private String commentTextSection = SeleniumHelper.generateRandomText(200);
-    private String websiteCommentSection = "www.testowylink.pl";
-
-
-
-    public String getFirstName() {
-        return firstName;
+    public Customer() {
+        this.firstName = "Pepino";
+        this.lastName = "Testowy";
+        this.companyName = "Tester&Tester";
+        this.country = "Poland";
+        this.address1 = "Testowa 11";
+        this.address2 = "Apt. 1";
+        this.cityName = "Seul";
+        this.postCode = "12-121";
+        this.phone = "123456789";
+        this.email = "test1@test.pl";
+        this.orderComments = "no comments";
+        this.contactUsMessage = "test test test";
+        this.commentTextSection = SeleniumHelper.generateRandomText(200);
+        this.websiteCommentSection = "www.testowylink.pl";
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    //TODO zamienić gettery i settery na @Getter i @Setter z biblioteki Lombok
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getCompanyName() {
         return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
     }
 
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String getAddress1() {
         return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1;
     }
 
     public String getAddress2() {
         return address2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
     public String getCityName() {
         return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
     }
 
     public String getPostCode() {
         return postCode;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
-    }
-
     public String getPhone() {
         return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getEmail() {
@@ -108,31 +85,16 @@ public class Customer {
         return orderComments;
     }
 
-    public void setOrderComments(String orderComments) {
-        this.orderComments = orderComments;
-    }
-
     public String getContactUsMessage() {
         return contactUsMessage;
-    }
-
-    public void setContactUsMessage(String contactUsMessage) {
-        this.contactUsMessage = contactUsMessage;
     }
 
     public String getCommentTextSection() {
         return commentTextSection;
     }
 
-    public void setCommentTextSection(String commentTextSection) {
-        this.commentTextSection = commentTextSection;
-    }
-
     public String getWebsiteCommentSection() {
         return websiteCommentSection;
     }
 
-    public void setWebsiteCommentSection(String websiteCommentSection) {
-        this.websiteCommentSection = websiteCommentSection;
-    }
 }

@@ -42,19 +42,19 @@ public class HomePage {
     private WebElement deliversOnTimeText;
 
     @FindBy(xpath = "//div[@data-sek-id='__nimble__ce9c67ba2a1c']")
-    private WebElement nimbleCe9c67ba2a1cText;
+    private WebElement nimbleFirstText;
 
     @FindBy(xpath = "//div[@data-sek-id='__nimble__6e96a4095315']")
-    private WebElement nimble6e96a4095315Text;
+    private WebElement nimbleSecondText;
 
     @FindBy(xpath = "//div[@data-sek-id='__nimble__b547e4fe7ec6']")
-    private WebElement nimbleB547e4fe7ec6Text;
+    private WebElement nimbleThirdText;
 
     @FindBy(xpath = "//h2[text()='CONTACT US']")
     private WebElement contactUsText;
 
-    @FindBy(xpath = "//div/label[@for='nimble_name357955861']")
-    private WebElement nimbleName357955861;
+    @FindBy(xpath = "//div/label[@for='nimble_name873983543']")
+    private WebElement nimbleFourthText;
 
     @FindBy(id = "sek-form-respond")
     private WebElement respondText;
@@ -65,7 +65,7 @@ public class HomePage {
     @FindBy(xpath = "//h1[@class='navbar-brand col-auto ']")
     private WebElement homePageBar;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -88,7 +88,6 @@ public class HomePage {
     }
 
     public WebElement getDesignYourOwnSpace() {
-        System.out.println(designYourOwnSpace.getText());
         return designYourOwnSpace;
     }
 
@@ -110,46 +109,38 @@ public class HomePage {
     }
 
     public WebElement getHighPerformanceText() {
-        System.out.println(highPerformanceText.getText());
         return highPerformanceText;
     }
 
     public WebElement getIndustryLeaderText() {
-        System.out.println(industryLeaderText.getText());
         return industryLeaderText;
     }
 
     public WebElement getDeliversOnTimeText() {
-        System.out.println(deliversOnTimeText.getText());
         return deliversOnTimeText;
     }
 
-    public WebElement getNimbleCe9c67ba2a1cText() {
-        System.out.println(nimbleCe9c67ba2a1cText.getText());
-        return nimbleCe9c67ba2a1cText;
+    public WebElement getNimbleFirstText() {
+        return nimbleFirstText;
     }
 
-    public WebElement getNimble6e96a4095315Text() {
-        System.out.println(nimble6e96a4095315Text.getText());
-        return nimble6e96a4095315Text;
+    public WebElement getNimbleSecondText() {
+        return nimbleSecondText;
     }
 
-    public WebElement getNimbleB547e4fe7ec6Text() {
-        System.out.println(nimbleB547e4fe7ec6Text.getText());
-        return nimbleB547e4fe7ec6Text;
+    public WebElement getNimbleThirdText() {
+        return nimbleThirdText;
     }
 
     public WebElement getContactUsText() {
-        System.out.println(contactUsText.getText());
         return contactUsText;
     }
 
-    public WebElement getNimbleName357955861() {
-        return nimbleName357955861;
+    public WebElement getNimbleFourthText() {
+        return nimbleFourthText;
     }
 
     public WebElement getRespondText() {
-        System.out.println(respondText.getText());
         return respondText;
     }
 
@@ -162,4 +153,5 @@ public class HomePage {
     public WebElement getHomePageBar() {
         return homePageBar;
     }
+
 }

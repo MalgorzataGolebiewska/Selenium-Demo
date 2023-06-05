@@ -14,7 +14,7 @@ public class ErrorPage {
     @FindBy(xpath = "//p[4]/a")
     private WebElement backUrl;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public ErrorPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -23,7 +23,6 @@ public class ErrorPage {
 
     public WebElement getErrorTitle() {
         SeleniumHelper.waitForElementToBeVisible(driver, errorTitle);
-        System.out.println(errorTitle.getText());
         return errorTitle;
     }
 
@@ -32,4 +31,5 @@ public class ErrorPage {
         backUrl.click();
         return new ArticleContainer(driver);
     }
+
 }

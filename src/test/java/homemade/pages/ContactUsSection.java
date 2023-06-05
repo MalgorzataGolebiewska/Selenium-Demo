@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ContactUsSection {
+
+    //TODO co bliżej nieokreslony czas generuje randomowe id
     @FindBy(id = "nimble_name357955861")
     private WebElement nimbleNameInput;
 
@@ -19,7 +21,7 @@ public class ContactUsSection {
     @FindBy(id = "nimble_submit357955861")
     private WebElement nimbleButton;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public ContactUsSection(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -33,4 +35,5 @@ public class ContactUsSection {
         nimbleButton.click();
         return new HomePage(driver);
     }
+
 }

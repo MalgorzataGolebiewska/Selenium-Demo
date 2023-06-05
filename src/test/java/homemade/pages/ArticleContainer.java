@@ -65,7 +65,7 @@ public class ArticleContainer {
     @FindBy(xpath = "//h1[@class='navbar-brand col-auto ']")
     private WebElement homePageBar;
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public ArticleContainer(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -144,11 +144,6 @@ public class ArticleContainer {
         return permalinkText;
     }
 
-    public WebElement getSubmitCommentButton() {
-        SeleniumHelper.waitForClickable(submitCommentButton, driver);
-        return submitCommentButton;
-    }
-
     public ArticleContainer fillCommentSection(Customer customer) {
         commentInput.sendKeys(customer.getCommentTextSection());
         authorCommentInput.sendKeys(customer.getFirstName());
@@ -174,6 +169,7 @@ public class ArticleContainer {
     public WebElement getHomePageBar() {
         return homePageBar;
     }
+
 }
 
 

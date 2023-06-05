@@ -10,20 +10,19 @@ import org.testng.annotations.Test;
 public class ArticleSectionTest extends BaseTest {
 
     @Test
-    public void ArticleSectionTest() {
-
-        Customer customer = new Customer();
-
+    public void articleSectionTest() {
+        //given
+        //when
         ArticleContainer articleContainer = new HomePage(driver)
                 .openArticleContainerPage()
-                .fillCommentSection(customer);
-
+                .fillCommentSection(new Customer());
+        //then
         Assert.assertEquals(articleContainer.getUncategorizedSpan().getText(), "UNCATEGORIZED");
         Assert.assertEquals(articleContainer.getEntryTitleText().getText(), "Second post");
         Assert.assertEquals(articleContainer.getPublishedText().getText(), "by admin|Published January 18, 2019");
         Assert.assertEquals(articleContainer.getPostContentText().getText(), "Second post");
         Assert.assertEquals(articleContainer.getRelatedPostText().getText(), "YOU MAY ALSO LIKE");
-        Assert.assertEquals(articleContainer.getPermalinkText().getText(), "Second post");
+        Assert.assertEquals(articleContainer.getPermalinkText().getText(), "Hello World");
         Assert.assertEquals(articleContainer.getLeaveCommentText().getText(), "Leave a comment");
         Assert.assertEquals(articleContainer.getEmailNotes().getText(), "Your email address will not be published. Required fields are marked *");
         Assert.assertEquals(articleContainer.getCommentLabel().getText(), "COMMENT");
@@ -37,29 +36,33 @@ public class ArticleSectionTest extends BaseTest {
     }
 
     @Test
-    public void CommentSectionInvalidEmail() {
+    public void commentSectionInvalidEmail() {
+        //given
         Customer customer = new Customer();
         customer.setEmail("lllllll");
-
+        //when
         ArticleContainer articleContainer = new HomePage(driver)
                 .openArticleContainerPage()
                 .fillErrorComment(customer);
         ErrorPage errorPage = articleContainer.openErrorPage();
-        //#TODO czy to poprawne podejscie?
+        //TODO czy to poprawne podejscie?
         String errorMessage = errorPage.getErrorTitle().getText();
         articleContainer = errorPage.getBackUrl();
-
+        //then
         Assert.assertEquals(errorMessage, "ERROR: please enter a valid email address.");
         Assert.assertEquals(articleContainer.getHomePageBar().getText(), "Selenium Demo Page");
     }
 
     @Test
-    public void YouMayAlsoLikeArea() {
+    public void youMayAlsoLikeArea() {
+        //given
+        //when
         ArticleContainer articleContainer = new HomePage(driver)
                 .openArticleContainerPage()
                 .getPermalinkPhoto();
-
+        //then
         Assert.assertEquals(articleContainer.getEntryTitleText().getText(), "Hello World");
     }
+
 }
 
